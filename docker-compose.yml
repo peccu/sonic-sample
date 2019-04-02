@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  sonic:
+    image: valeriansaliou/sonic:v1.1.9
+    restart: always
+    ports:
+      - 1491:1491
+    volumes:
+      - ./sonic.cfg:/etc/sonic.cfg
+      - ./store:/var/lib/sonic/store
+  telnet:
+    image: kyokuheki/telnet
+    depends_on:
+      - sonic
+    entrypoint: tail
+    command: -f /dev/null
+    stop_signal: SIGKILL
