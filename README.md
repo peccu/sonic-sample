@@ -1,5 +1,7 @@
 # sonic sample
 
+try [sonic](https://github.com/valeriansaliou/sonic) sample.
+
 ## prepare sonic
 
 ```
